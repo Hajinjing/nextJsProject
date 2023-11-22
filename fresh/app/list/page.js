@@ -1,13 +1,20 @@
+import Image from 'next/image'
+import 작명 from '/public/food0.png'
 export default function List() {
+  let 상품 = ['Tomatoes', 'Pasta', 'Coconut']
   return (
       <div>
-          <h2>Products</h2>
-          <div className="food">
-              <h4>상품명 $40</h4>
-          </div>
-          <div className="food">
-              <h4>상품명 $40</h4>
-          </div>
+          <h4 className="title">상품목록</h4>
+          {
+              상품.map((el, i)=>{
+                  return (
+                      <div className="food" key={i}>
+                          <img src={`/food${i}.png`} className="food-img"/>
+                          <h4>{ el } $40</h4>
+                      </div>
+                  )
+              })
+          }
       </div>
   )
 }
