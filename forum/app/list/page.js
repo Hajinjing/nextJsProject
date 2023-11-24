@@ -4,11 +4,8 @@ import Link from "next/link"
 import DetailLink from "@/app/list/DetailLink";
 export default async function List() {
 
-    const client = await connectDB;
-    const db = client.db("forum")
-
+    const db = (await connectDB).db("forum")
     let result = await db.collection('post').find().toArray()
-    console.log(result[0]._id)
 
     return (
         <div className="list-bg">
@@ -19,7 +16,7 @@ export default async function List() {
                             <Link href={`detail/${r._id}`}>
                                 <h4>{r.title}</h4>
                             </Link>
-                            <DetailLink/>
+                            <Link href={`edit/${r._id}`}>✏️</Link>
                             <p>1월 1일</p>
                         </div>
                 )
