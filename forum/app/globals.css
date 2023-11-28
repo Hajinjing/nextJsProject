@@ -31,10 +31,10 @@ input {
     margin-bottom: 10px;
 }
 button {
-    /*padding: 10px 15px;*/
-    background: none;
+    padding: 5px 10px;
+    background: darkgray;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 a{
     text-decoration: none; /*a태그 밑줄 제거*/

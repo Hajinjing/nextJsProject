@@ -15,12 +15,21 @@ export default function ListItem({result}) {
                             fetch('/api/post/delete',{
                                 method:'DELETE',
                                 body:r._id})
-                            .then((r)=>r.json())
+                            .then((r)=>{
+                                if (!r.ok) {
+                                    console.error('Invalid response data');
+                                    return;
+                                }
+                                return  r.json()
+                            })
                             .then(()=>{
                                 e.target.parentElement.style.opacity=0
                                 setTimeout(()=>{
                                     e.target.parentElement.style.display='none'
                                 })
+                            })
+                            .catch((error) => {
+                                console.error('Fetch error:', error)
                             })
                         }}>🗑️</button>
                         <p>1월 1일</p>
